@@ -91,11 +91,29 @@ class CliContractTests(unittest.TestCase):
         self.assertTrue(payload["lanes"])
 
     def test_security_requires_specialist(self) -> None:
-        result = self.run_cli("--minutes", "30", "--focus", "security", "--format", "json")
+        for focus in ("security", "security,testing"):
+            with self.subTest(focus=focus):
+                result = self.run_cli("--minutes", "30", "--focus", focus, "--format", "json")
+                self.assertEqual(result.returncode, 0, result.stderr)
+                payload = json.loads(result.stdout)
+                self.assertEqual(payload["lanes"], [])
+                self.assertEqual(payload["specialist_required"], "security-audit")
+
+        text_result = self.run_cli("--minutes", "30", "--focus", "security")
+        self.assertEqual(text_result.returncode, 0, text_result.stderr)
+        self.assertIn("requires an installed dedicated security-audit workflow", text_result.stdout)
+
+    def test_default_text_contract(self) -> None:
+        result = self.run_cli(
+            "--minutes", "60", "--focus", "correctness,testing", "--repo-size", "medium"
+        )
         self.assertEqual(result.returncode, 0, result.stderr)
-        payload = json.loads(result.stdout)
-        self.assertEqual(payload["lanes"], [])
-        self.assertEqual(payload["specialist_required"], "security-audit")
+        self.assertEqual(result.stderr, "")
+        self.assertIn("Token Sweep: 60 minutes, report-only", result.stdout)
+        self.assertIn("$review-repository-deeply", result.stdout)
+        self.assertIn("$find-test-gaps", result.stdout)
+        self.assertIn("Reserve ~", result.stdout)
+        self.assertIn("Prompt: Use", result.stdout)
 
     def test_unknown_focus_fails(self) -> None:
         result = self.run_cli("--minutes", "30", "--focus", "correctnes")
