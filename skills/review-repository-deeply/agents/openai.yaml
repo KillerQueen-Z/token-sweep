@@ -1,0 +1,4 @@
+interface:
+  display_name: "Review Repository Deeply"
+  short_description: "Deep evidence-backed whole-repository review"
+  default_prompt: "Use $review-repository-deeply to inspect this repository and return a prioritized, evidence-backed review without changing code."

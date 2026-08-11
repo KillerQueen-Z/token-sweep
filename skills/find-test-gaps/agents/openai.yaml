@@ -1,0 +1,4 @@
+interface:
+  display_name: "Find Test Gaps"
+  short_description: "Find consequential untested behavior and risks"
+  default_prompt: "Use $find-test-gaps to identify the most consequential missing tests and propose concrete test cases."

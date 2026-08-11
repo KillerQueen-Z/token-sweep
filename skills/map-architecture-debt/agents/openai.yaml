@@ -1,0 +1,4 @@
+interface:
+  display_name: "Map Architecture Debt"
+  short_description: "Map architectural debt and migration options"
+  default_prompt: "Use $map-architecture-debt to map this repository's architectural debt and prioritize pragmatic improvements."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Spend Tokens Wisely"
+  short_description: "Turn expiring quota into durable repo value"
+  default_prompt: "Use $spend-tokens-wisely to choose and run the highest-value safe repository work before my usage quota resets."

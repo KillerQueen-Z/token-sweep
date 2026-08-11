@@ -1,0 +1,4 @@
+interface:
+  display_name: "Audit Dependency Health"
+  short_description: "Audit dependency risk, age, and necessity"
+  default_prompt: "Use $audit-dependency-health to audit dependency health and produce a safe prioritized action plan."

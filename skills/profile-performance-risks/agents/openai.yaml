@@ -1,0 +1,4 @@
+interface:
+  display_name: "Profile Performance Risks"
+  short_description: "Find performance risks with measurable evidence"
+  default_prompt: "Use $profile-performance-risks to find likely performance bottlenecks and design measurements before optimization."

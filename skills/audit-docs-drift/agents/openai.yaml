@@ -1,0 +1,4 @@
+interface:
+  display_name: "Audit Docs Drift"
+  short_description: "Find stale docs and code-documentation drift"
+  default_prompt: "Use $audit-docs-drift to compare this repository's documentation with its current implementation and report actionable drift."
