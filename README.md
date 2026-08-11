@@ -35,7 +35,7 @@ The design rules are simple:
 
 ## Install
 
-After this repository is published:
+Install all skills:
 
 ```bash
 npx skills add KillerQueen-Z/token-sweep

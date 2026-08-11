@@ -20,7 +20,7 @@ Token Sweep 不是“为了烧 token 而烧 token”的死循环。它会根据�
 
 ## 安装
 
-仓库发布后可安装全部 skills：
+安装全部 skills：
 
 ```bash
 npx skills add KillerQueen-Z/token-sweep
